@@ -1,0 +1,58 @@
+ /*CSS HEADER*/
+
+body {
+    margin: 0; /* remove a borda branca das laterais */
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 70px 0;
+}
+main {
+    background: 
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.15) 0%,   /* degrade suave no topo */
+            rgba(0, 0, 0, 1) 20%            /* escurece logo no começo */
+        ),
+        black;                              /* resto preto */
+
+    padding-top: 80px;     /* texto fica lá em cima */
+    padding-bottom: 800px; /* deixa o main "gordo" sem empurrar texto */
+    padding-left: 50px;    /* margem esquerda */
+    padding-right: 50px;
+}
+
+main h3,
+main h5 {
+    max-width: 500px;  /* texto NÃO atravessa a tela toda */
+    color: white;
+    text-align: left;
+    margin: 0;         /* remove qualquer espaço que empurra o texto */
+
+}
+main h3 {
+    font-size: 32px;
+}
+footer {
+    background: linear-gradient(
+        to top,                   /* agora o efeito sobe */
+        rgba(255, 255, 255, 0.15) 0%,   /* brilho suave no fundo */
+        rgba(0, 0, 0, 1) 45%            /* preto sólido logo acima */
+    ),
+    black;                             /* fundo preto */
+
+    border-top: 2px solid white;       /* linha branca separando o main */
+    padding-bottom: 70px;                    /* altura do footer, ajuste como quiser */
+    color: white;
+}
+footer h5 {
+    text-align: left;
+    margin-top: 0px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
