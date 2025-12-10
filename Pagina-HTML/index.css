@@ -2,7 +2,7 @@
  html {
     scroll-behavior: smooth;
  }
-
+ 
 body {
     margin: 0; /* remove a borda branca das laterais */
     padding: 0;
@@ -58,11 +58,19 @@ footer {
     color: white;
 }
 footer h5 {
-    text-align: left;
+    text-align: center;
     margin-top: 0px;
     padding-top: 20px;
     font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
+footer h5 {
+    color: white;
+    text-shadow: 
+        0 0 4px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(255, 215, 0, 0.3);
+}
+
 .header-buttons a {
     color: white;
     font-size: 24px;           /* tamanho maior */
@@ -119,4 +127,141 @@ footer h5 {
     width: 24px;
     height: 24px;
 }
+/* sombra suave para todos os botões */
+.social-btn {
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+}
+
+/* leve efeito de brilho ao passar o mouse */
+.social-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.35);
+}
+
+/* degradê oficial do Instagram */
+.social-btn.insta {
+    background: linear-gradient(135deg,
+        #f58529,
+        #feda77,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+.social-btn.wpp {
+    background: linear-gradient(135deg,
+        #2ddf6b,
+        #25d366,
+        #128c7e
+    );
+}
+.social-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+    filter: brightness(1.1);
+}
+.btn-text {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin-left: 6px;
+    font-size: 20px;
+}
+.cards-servicos {
+    max-width: 700px;
+    margin-top: 40px;
+}
+
+
+
+.card {
+    background-color: #111;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-header {
+    padding: 20px;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header:hover {
+    background-color: #222;
+}
+
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    padding: 0 20px;
+    color: white;
+}
+
+.card-content img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+.cards-servicos {
+    max-width: 700px;
+    margin: 40px auto; /* isso centraliza */
+}
+.card {
+    background-color: #111;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.15); /* glow suave */
+}
+
+.card:hover {
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.35); /* glow mais forte no hover */
+    transform: scale(1.02);                      /* cresce bem suave */
+}
+.card-header {
+    padding: 20px;
+    color: white;
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+.card-header:hover {
+    background-color: #1a1a1a;
+}
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: white;
+    transition: 
+        max-height 0.6s ease,
+        padding 0.4s ease;
+}
+/* estado inicial: invisível e levemente para baixo */
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* quando aparece na tela */
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+#formaçoes h3 {
+    text-align: right !important;
+}
+
+
 
