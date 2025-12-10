@@ -262,6 +262,209 @@ footer h5 {
 #formaçoes h3 {
     text-align: right !important;
 }
+/* Botão flutuante voltar ao topo */
+#btnTopo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #d4af37; /* dourado */
+    color: black;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    display: none; /* começa escondido */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+    transition: all 0.3s ease;
+}
 
+#btnTopo:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 1);
+}
+/* CONTÊINER EXTERNO - permite que setas fiquem visíveis */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 0;
+    overflow: visible; /* importante: deixa as setas fora do viewport visíveis e acionáveis */
+}
 
+/* VIEWPORT - apenas ele esconde o que está fora dos slides */
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 14px; /* opcional */
+}
 
+/* Carrossel (desloca os slides) */
+.carousel {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    will-change: transform;
+}
+
+/* Cada slide - centraliza conteúdo */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centraliza horizontalmente imagem + texto */
+    justify-content: center;
+    text-align: center;    /* centraliza o texto */
+    color: white;
+}
+
+/* Imagem com glow e leve zoom no hover */
+.slide img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    transition: transform 0.35s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.04);
+}
+
+/* Texto do depoimento */
+.slide p {
+    margin-top: 18px;
+    font-size: 20px;
+    max-width: 600px;
+    line-height: 1.4;
+    color: #f1f1f1;
+}
+
+/* Botões (setas) - agora dentro do contêiner e clicáveis */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20; /* garante que fiquem acima dos slides */
+    background: rgba(212, 175, 55, 0.9);
+    color: black;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Hover das setas */
+.carousel-btn:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: #d4af37;
+    box-shadow: 0 8px 26px rgba(212,175,55,0.95);
+}
+
+/* distância das setas para a borda interna do container */
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
+}
+
+/* Responsividade - ajusta imagens e texto em telas menores */
+@media (max-width: 700px) {
+    .slide img {
+        width: 220px;
+        height: 150px;
+    }
+    .slide p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+}
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #555;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-dots .dot.active {
+    background: #d4af37; /* dourado */
+    transform: scale(1.3);
+}
+/* Container do menu hamburger */
+.hamburger-menu {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 50;
+}
+
+/* Ícone do hamburger */
+.hamburger-icon {
+    color: white;
+    transition: transform 0.3s;
+}
+
+.hamburger-menu:hover .hamburger-icon {
+    transform: scale(1.2);
+}
+
+/* Conteúdo do menu */
+.menu-content {
+    display: none; /* escondido inicialmente */
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: rgba(0,0,0,0.95);
+    border: 1px solid #fff;
+    border-radius: 8px;
+    flex-direction: column;
+    min-width: 180px;
+    padding: 10px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.menu-content a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.menu-content a:hover {
+    background-color: #d4af37; /* dourado */
+    color: black;
+    border-radius: 4px;
+}
