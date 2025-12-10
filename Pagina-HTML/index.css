@@ -1,15 +1,22 @@
- /*CSS HEADER*/
+ /*CSS HTML*/
+ html {
+    scroll-behavior: smooth;
+ }
 
 body {
     margin: 0; /* remove a borda branca das laterais */
     padding: 0;
 }
-
-header {
+header
+ {
     background-color: black;
     color: white;
     text-align: center;
     padding: 70px 0;
+    font-family: 'Parisienne', cursive;
+}
+header h1 {
+    font-size: 60px;
 }
 main {
     background: 
@@ -24,6 +31,7 @@ main {
     padding-bottom: 800px; /* deixa o main "gordo" sem empurrar texto */
     padding-left: 50px;    /* margem esquerda */
     padding-right: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main h3,
@@ -54,5 +62,61 @@ footer h5 {
     margin-top: 0px;
     padding-top: 20px;
     font-size: 30px;
+}
+.header-buttons a {
+    color: white;
+    font-size: 24px;           /* tamanho maior */
+    text-decoration: none;     /* tira sublinhado */
+    cursor: pointer;
+    transition: color 0.3s;   /* efeito suave apenas na cor */
+    margin: 0 10px;            /* espaçamento entre palavras */
+}
+
+.header-buttons a:hover {
+    color: #FFD700;            /* dourado ao passar o mouse */
+}
+
+/* separador | */
+.header-buttons .separator {
+    color: white;
+    margin: 0 10px;
+    cursor: default;           /* não clicável */
+}
+.social-buttons {
+    display: flex;
+    gap: 20px;            /* espaço entre os botões */
+    margin-top: 30px;
+    justify-content: center; /* centraliza os botões no footer */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;             /* espaço entre ícone e texto */
+    padding: 10px 20px;
+    border-radius: 30px;   /* bordas arredondadas */
+    text-decoration: none;  /* remove sublinhado */
+    color: white;           /* texto branco */
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.05); /* leve aumento ao passar o mouse */
+}
+
+/* cores específicas para cada rede */
+.social-btn.insta {
+    background: #E1306C;   /* rosa do Instagram */
+}
+
+.social-btn.wpp {
+    background: #25D366;   /* verde WhatsApp */
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
 }
 
