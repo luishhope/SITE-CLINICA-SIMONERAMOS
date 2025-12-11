@@ -44,6 +44,7 @@ main h5 {
 }
 main h3 {
     font-size: 32px;
+    color: rgba(244, 193, 27, 0.7);
 }
 footer {
     background: linear-gradient(
@@ -418,56 +419,65 @@ footer h5 {
     background: #d4af37; /* dourado */
     transform: scale(1.3);
 }
-/* Container do menu hamburger */
+/* Container do menu */
 .hamburger-menu {
     position: absolute;
     top: 25px;
     right: 20px;
-    font-size: 28px;
     cursor: pointer;
     user-select: none;
-    z-index: 50;
+    z-index: 9999;
 }
 
-/* Ícone do hamburger */
+/* Ícone */
 .hamburger-icon {
+    font-size: 34px; /* um pouco maior */
     color: white;
-    transition: transform 0.3s;
+    transition: transform 0.2s, filter 0.2s;
 }
 
+/* Glow dourado suave no ícone */
 .hamburger-menu:hover .hamburger-icon {
-    transform: scale(1.2);
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 5px #d4af37);
 }
 
-/* Conteúdo do menu */
+/* Menu dropdown */
 .menu-content {
-    display: none; /* escondido inicialmente */
+    display: none;
     position: absolute;
-    top: 40px;
+    top: 45px;
     right: 0;
-    background-color: rgba(0,0,0,0.95);
-    border: 1px solid #fff;
-    border-radius: 8px;
-    flex-direction: column;
-    min-width: 180px;
+    background: rgba(0,0,0,0.92);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
     padding: 10px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    min-width: 190px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
 }
 
+/* Links */
 .menu-content a {
     color: white;
-    text-decoration: none;
-    padding: 10px 20px;
+    text-decoration: none !important; /* remove underline */
+    padding: 12px 22px;
     display: block;
-    font-size: 16px;
-    transition: background 0.2s;
+    font-size: 17px;
+    font-family: sans-serif; /* Sans serif */
+    letter-spacing: 0.5px;
+    transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 
+/* Hover dourado */
 .menu-content a:hover {
-    background-color: #d4af37; /* dourado */
+    background: rgba(212,175,55,0.9);
     color: black;
-    border-radius: 4px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(212,175,55,0.65);
+    transform: translateX(4px);
 }
+
 /* ============================= */
 /* BALÃO DE AGENDAMENTO FIXO     */
 /* ============================= */
