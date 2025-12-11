@@ -28,7 +28,7 @@ main {
         black;                              /* resto preto */
 
     padding-top: 80px;     /* texto fica lá em cima */
-    padding-bottom: 800px; /* deixa o main "gordo" sem empurrar texto */
+    padding-bottom: 100px; /* deixa o main "gordo" sem empurrar texto */
     padding-left: 50px;    /* margem esquerda */
     padding-right: 50px;
     font-family: Arial, Helvetica, sans-serif;
@@ -468,3 +468,293 @@ footer h5 {
     color: black;
     border-radius: 4px;
 }
+/* ============================= */
+/* BALÃO DE AGENDAMENTO FIXO     */
+/* ============================= */
+#agendamento-balao {
+    position: fixed;
+    right: 30px;
+    bottom: 80px; /* posição normal */
+    background-color: #d4af37;
+    color: black;
+    padding: 16px 22px;
+    border-radius: 40px;
+    font-family: Consolas, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+    transition: all 0.4s ease;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+#agendamento-balao.move-up {
+    bottom: 140px; /* sobe QUANDO o botão topo aparece */
+}
+
+/* Glow no hover */
+#agendamento-balao:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 1);
+}
+
+/* Balanço suave */
+@keyframes float {
+    0% { transform: translateY(0px);}
+    50% { transform: translateY(-6px);}
+    100% { transform: translateY(0px);}
+}
+
+/* ============================= */
+/* POP-UP DO FORMULÁRIO          */
+/* ============================= */
+
+#form-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+#form-overlay.show {
+    display: flex;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#form-popup {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    animation: popUp 0.3s ease;
+    font-family: Consolas, monospace;
+}
+
+@keyframes popUp {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+#form-popup input,
+#form-popup textarea {
+    width: 100%;
+    margin: 8px 0 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: Consolas, monospace;
+}
+
+#form-popup button {
+    width: 100%;
+    padding: 12px;
+    background: #FFD700;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: Consolas, monospace;
+}
+/* Remove qualquer scroll lateral */
+body { overflow-x: hidden; }
+
+/* ================================
+   SEÇÃO DIAGNÓSTICO
+================================ */
+.diagnostico-section {
+    width: 100%;
+    padding: 90px 20px;
+    background: linear-gradient(180deg, transparent 0%, rgba(230, 120, 120, 0.04) 100%);
+    display: flex;
+    justify-content: center;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.diag-container {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.diag-container h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #d4af37, #b0912d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.diag-container p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+/* Card da prévia */
+.diag-preview {
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.85); /* ← mais claro */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.4);
+    margin-bottom: 35px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: fadeUp 0.6s ease;
+}
+
+/* Balões */
+.bubble {
+    width: fit-content;
+    max-width: 85%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.bubble.user {
+    background: rgba(0, 0, 0, 0.12);
+    margin-left: auto;
+}
+
+.bubble.bot {
+    background: rgba(0, 140, 200, 0.18);
+    border-left: 4px solid #0094d4;
+}
+
+/* Botão iniciar */
+.diag-btn {
+    padding: 14px 34px;
+    background: linear-gradient(90deg, #ffcb23, #b0912d);
+    color: #000000;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 20px rgba(255, 234, 0, 0.889);
+    transition: 0.25s ease;
+}
+
+.diag-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* ================================
+            POPUP
+================================ */
+.popup-diag {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+
+.popup-content-diag {
+    width: 92%;
+    max-width: 430px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    animation: fadeUp 0.4s ease;
+    font-family: "Segoe UI", Tahoma;
+    border: 1px solid rgba(255,255,255,0.7);
+}
+
+.close-diag {
+    float: right;
+    font-size: 36px;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.close-diag:hover {
+    color: #0094d4;
+    transform: scale(1.2);
+}
+
+.popup-content-diag h2 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg,#0086c7,#00b2e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Chat */
+.chat-diag {
+    margin-top: 15px;
+    height: 260px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00a4d8 #e0e0e0;
+}
+
+.chat-diag::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-diag::-webkit-scrollbar-thumb {
+    background: #00a4d8;
+    border-radius: 10px;
+}
+
+/* Opções */
+.diag-opcoes {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.diag-btn-option {
+    padding: 14px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #00a4d8, #00c0f4);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 18px rgba(0,164,216,0.35);
+}
+
+.diag-btn-option:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* ================================
+         ANIMAÇÕES
+================================ */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

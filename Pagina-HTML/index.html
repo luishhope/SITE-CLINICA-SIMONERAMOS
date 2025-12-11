@@ -162,7 +162,22 @@
   
 </section>
 
+<!-- SEÇÃO DIAGNÓSTICO -->
+<section class="diagnostico-section">
+<div class="diag-container">
+    <h2>Faça seu Diagnóstico Rápido</h2>
+    <p>Descubra em segundos qual tratamento combina com seu cabelo.</p>
+
+    <div class="diag-preview">
+        <div class="bubble user">Meu cabelo anda caindo…</div>
+        <div class="bubble bot">Posso te ajudar! Vamos começar?</div>
+    </div>
+
+    <button id="abrirDiagnostico" class="diag-btn">Iniciar Conversa</button>
+</div>
+</section>
     </main>
+
 
     <!--Footer-->
     <div id="footer">
@@ -186,6 +201,44 @@
         </footer>
     </div>
 
+<!-- BOTÃO DE AGENDAMENTO -->
+<div id="agendamento-balao">Agendar consulta</div>
+
+<!-- POP-UP DE FORMULÁRIO -->
+<div id="form-overlay">
+  <div id="form-popup">
+    <h2>Agendar Consulta</h2>
+
+    <label>Nome</label>
+    <input type="text" placeholder="Seu nome">
+
+    <label>Telefone</label>
+    <input type="text" placeholder="(XX) XXXXX-XXXX">
+
+    <label>Mensagem</label>
+    <textarea placeholder="Descreva seu caso..."></textarea>
+
+    <button id="enviar-form">Enviar</button>
+    <button id="fechar-form">Fechar</button>
+  </div>
+</div>
+
+<!-- POPUP DIAGNÓSTICO -->
+<div id="popupDiagnostico" class="popup-diag">
+    <div class="popup-content-diag">
+        <span id="fecharDiag" class="close-diag">&times;</span>
+
+        <h2>Seu Diagnóstico</h2>
+
+        <div id="chatDiag" class="chat-diag">
+            <!-- Mensagens aparecem aqui -->
+        </div>
+
+        <div id="diagOpcoes" class="diag-opcoes"></div>
+    </div>
+</div>
+
+    
     <button id="btnTopo">↑</button>
 
 
