@@ -419,64 +419,6 @@ footer h5 {
     background: #d4af37; /* dourado */
     transform: scale(1.3);
 }
-/* Container do menu */
-.hamburger-menu {
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    cursor: pointer;
-    user-select: none;
-    z-index: 9999;
-}
-
-/* Ícone */
-.hamburger-icon {
-    font-size: 34px; /* um pouco maior */
-    color: white;
-    transition: transform 0.2s, filter 0.2s;
-}
-
-/* Glow dourado suave no ícone */
-.hamburger-menu:hover .hamburger-icon {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 5px #d4af37);
-}
-
-/* Menu dropdown */
-.menu-content {
-    display: none;
-    position: absolute;
-    top: 45px;
-    right: 0;
-    background: rgba(0,0,0,0.92);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 12px;
-    padding: 10px 0;
-    min-width: 190px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    backdrop-filter: blur(6px);
-}
-
-/* Links */
-.menu-content a {
-    color: white;
-    text-decoration: none !important; /* remove underline */
-    padding: 12px 22px;
-    display: block;
-    font-size: 17px;
-    font-family: sans-serif; /* Sans serif */
-    letter-spacing: 0.5px;
-    transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
-}
-
-/* Hover dourado */
-.menu-content a:hover {
-    background: rgba(212,175,55,0.9);
-    color: black;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(212,175,55,0.65);
-    transform: translateX(4px);
-}
 
 /* ============================= */
 /* BALÃO DE AGENDAMENTO FIXO     */
@@ -768,3 +710,127 @@ body { overflow-x: hidden; }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ================= HEADER LOCALIZAÇÃO ================= */
+#header-localizacao {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Pin de localização */
+#pin-localizacao {
+    width: 65px; /* aumentei um pouco */
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#pin-localizacao:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px #ff0000);
+}
+
+/* Mapa popup */
+#mapa-popup {
+    position: absolute;
+    top: 75px; /* abaixo do pin */
+    right: 0;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+/* Quando o popup estiver ativo */
+#mapa-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Conteúdo do mapa */
+#mapa-info {
+    padding: 15px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#mapa-info h4 {
+    margin: 0 0 5px;
+    color: #000;
+}
+
+#mapa-info p {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 0.9em;
+}
+
+#mapa-info a {
+    text-decoration: none;
+    color: #d4af37;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#mapa-info a:hover {
+    color: #b8942f;
+}
+
+/* Botão fechar mapa */
+#fechar-mapa {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #d4af37;
+    transition: transform 0.3s ease;
+}
+
+#fechar-mapa:hover {
+    transform: rotate(90deg);
+}
+
+    /* ===============================
+   H1 DO HEADER - REFLEXO DOURADO
+   =============================== */
+header h1 {
+    color: #d4af37; /* Cor dourada base */
+    position: relative;
+    font-weight: bold;
+
+    /* Gradiente para o reflexo */
+    background: linear-gradient(
+        90deg,
+        #d4af37 0%,        /* dourado base */
+        #ffffff 40%,       /* reflexo branco */
+        #d4af37 60%,       /* dourado volta */
+        #d4af37 100%
+    );
+    background-size: 200% 100%; /* tamanho maior para animação suave */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Glow sutil */
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7), 
+                 0 0 12px rgba(212, 175, 55, 0.4);
+
+    /* Animação do reflexo - invertido (direita para esquerda) */
+    animation: shine-text 3.5s linear infinite;
+}
+
+/* Keyframes da animação do reflexo (invertido) */
+@keyframes shine-text {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

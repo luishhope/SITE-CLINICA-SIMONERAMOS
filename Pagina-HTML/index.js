@@ -61,18 +61,36 @@ btnTopo.addEventListener("click", () => {
 // ===============================
 // FORM POP-UP
 // ===============================
-const overlay = document.getElementById("form-overlay");
-const fecharForm = document.getElementById("fechar-form");
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("form-overlay");
+    const fecharForm = document.getElementById("fechar-form");
+    const agendamentoBalao = document.getElementById("agendamento-balao");
 
-// Clicar no balão abre o formulário
-agendamentoBalao.addEventListener("click", () => {
-    overlay.classList.add("show");
+    // Clicar no balão abre o formulário
+    if (agendamentoBalao && overlay) {
+        agendamentoBalao.addEventListener("click", () => {
+            overlay.classList.add("show");
+            overlay.style.display = "flex"; // garante visibilidade
+        });
+    }
+
+    // Fechar formulário
+    if (fecharForm && overlay) {
+        fecharForm.addEventListener("click", () => {
+            overlay.classList.remove("show");
+            overlay.style.display = "none"; // esconde
+        });
+
+        // Fechar clicando fora do conteúdo
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove("show");
+                overlay.style.display = "none";
+            }
+        });
+    }
 });
 
-// Fechar formulário
-fecharForm.addEventListener("click", () => {
-    overlay.classList.remove("show");
-});
 
 
 
@@ -117,27 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
 });
 document.addEventListener("DOMContentLoaded", () => {
-  // ------- elementos do menu -------
-  const hamburgerMenu = document.querySelector(".hamburger-menu");
-  const menuContent = document.querySelector(".menu-content");
-
-  if (hamburgerMenu && menuContent) {
-    hamburgerMenu.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = menuContent.style.display === "flex";
-      menuContent.style.display = isOpen ? "none" : "flex";
-      hamburgerMenu.classList.toggle("active", !isOpen);
-    });
-
-    // fecha menu ao clicar fora
-    document.addEventListener("click", () => {
-      menuContent.style.display = "none";
-      hamburgerMenu.classList.remove("active");
-    });
-  } else {
-    console.info("Aviso: hamburgerMenu ou menuContent não encontrado(s).");
-  }
-
+  
   // ------- elementos do diagnóstico / agendamento (com checagem) -------
   const diagnosticoSection = document.querySelector(".diagnostico-section");
   const abrirDiagnosticoBTN = document.getElementById("abrirDiagnostico"); // botão dentro da seção
@@ -332,4 +330,16 @@ function finalDiag(problema, tempo, sintomas) {
         }, 900);
     }, 400);
 }
-   
+
+// ================= JS LOCALIZAÇÃO =================
+const pin = document.getElementById("pin-localizacao");
+const mapa = document.getElementById("mapa-popup");
+const fecharMapa = document.getElementById("fechar-mapa");
+
+pin.addEventListener("click", () => {
+    mapa.classList.toggle("show");
+});
+
+fecharMapa.addEventListener("click", () => {
+    mapa.classList.remove("show");
+});
