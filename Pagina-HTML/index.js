@@ -343,21 +343,33 @@ pin.addEventListener("click", () => {
 fecharMapa.addEventListener("click", () => {
     mapa.classList.remove("show");
 });
-const particleContainer = document.getElementById("particle-container");
+document.addEventListener("DOMContentLoaded", () => {
+    const particleContainer = document.getElementById("particle-container");
 
-function createParticle() {
-    const particle = document.createElement("div");
-    particle.classList.add("particle");
-    
-    particle.style.left = Math.random() * 100 + "vw";
-    particle.style.animationDuration = 2.5 + Math.random() * 2 + "s";
-    particle.style.opacity = 0;
-    
-    particleContainer.appendChild(particle);
+    function createParticle() {
+        const particle = document.createElement("span");
+        particle.className = "particle";
 
-    setTimeout(() => {
-        particle.remove();
-    }, 3000);
-}
+        // sempre começa no topo do container
+        particle.style.top = "0px";
 
-setInterval(createParticle, 200);
+        // largura do container
+        const width = particleContainer.offsetWidth;
+        particle.style.left = Math.random() * width + "px";
+
+        // tamanho
+        const size = Math.random() * 6 + 4;
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+
+        // duração
+        const duration = Math.random() * 3 + 2;
+        particle.style.animationDuration = duration + "s";
+
+        particleContainer.appendChild(particle);
+
+        setTimeout(() => particle.remove(), duration * 1000);
+    }
+
+    setInterval(createParticle, 150);
+});

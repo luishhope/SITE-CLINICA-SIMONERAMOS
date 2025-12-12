@@ -305,8 +305,8 @@ footer h5 {
     opacity: 1;
     transform: translateY(0);
 }
-#formaçoes h3 {
-    text-align: right !important;
+#formaçoes h2 {
+    text-align: center;
 }
 /* Botão flutuante voltar ao topo */
 #btnTopo {
@@ -924,6 +924,40 @@ main h3 {
         background-position: -200% 0;
     }
 }
+main h2 {
+    font-size: 35px;
+    color: #d4af37; /* Cor dourada base */
+    font-weight: bold;
+
+    /* Gradiente para o reflexo */
+    background: linear-gradient(
+        90deg,
+        #d4af37 0%,        /* dourado base */
+        #ffffff 40%,       /* reflexo branco */
+        #d4af37 60%,       /* dourado volta */
+        #d4af37 100%
+    );
+    background-size: 200% 100%; /* tamanho maior para animação suave */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Glow sutil */
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7), 
+                 0 0 12px rgba(212, 175, 55, 0.4);
+
+    /* Animação do reflexo - invertido (direita para esquerda) */
+    animation: shine-text 3.5s linear infinite;
+}
+
+/* Keyframes da animação do reflexo (invertido) */
+@keyframes shine-text {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
 /* ===== Developer Badge Texto Minimalista ===== */
 .developer-badge {
     position: absolute;       
@@ -1008,45 +1042,38 @@ main h3 {
     transform: translateY(-5px) scale(1.03);
 }
 /* Partículas douradas no main */
+main {
+    position: relative;
+    z-index: 1;
+}
+
 #particle-container {
     position: absolute;
-    top: 0;                 /* começa exatamente no topo do main */
+    top: 0;                  /* começa exatamente no topo do main */
     left: 0;
     width: 100%;
-    height: 50vh;          /* partículas só até metade do main */
+    height: 950px;           /* até onde as partículas vão cair */
     pointer-events: none;
     overflow: hidden;
-    z-index: 2;
+    z-index: -1;             /* atrás do conteúdo */
 }
 
-/* estilo das partículas */
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, #ffe08a, #d4af37);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    opacity: 0;
-    filter: drop-shadow(0 0 6px #d4af37);
-    animation: particleFall 3s linear forwards;
+    filter: blur(3px);
+    animation: fall linear forwards;
 }
 
-/* animação nova (de cima → meio do main) */
-@keyframes particleFall {
-    0% {
+@keyframes fall {
+    from {
         transform: translateY(0);
-        opacity: 0;
-    }
-    10% {
         opacity: 1;
     }
-    70% {
-        opacity: 1;
-        transform: translateY(25vh); /* até a metade do main */
-    }
-    100% {
+    to {
+        transform: translateY(350px);
         opacity: 0;
-        transform: translateY(30vh); /* desaparece logo abaixo */
     }
 }
 
