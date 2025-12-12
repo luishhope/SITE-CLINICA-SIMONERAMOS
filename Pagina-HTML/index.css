@@ -46,27 +46,77 @@ main h3 {
     font-size: 32px;
     color: rgba(244, 193, 27, 0.7);
 }
+/* ===== Footer ===== */
 footer {
-    background: linear-gradient(
-        to top,                   /* agora o efeito sobe */
-        rgba(255, 255, 255, 0.15) 0%,   /* brilho suave no fundo */
-        rgba(0, 0, 0, 1) 45%            /* preto sólido logo acima */
-    ),
-    black;                             /* fundo preto */
-
-    border-top: 2px solid white;       /* linha branca separando o main */
-    padding-bottom: 70px;                    /* altura do footer, ajuste como quiser */
+    position: relative;       /* necessário para o ::before se posicionar dentro */
+    border-top: none;         /* remove a linha branca antiga */
+    overflow: hidden;         /* garante que a animação não vaze */
+    padding-bottom: 70px;     /* mantém altura do footer */
     color: white;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(0, 0, 0, 1) 45%
+    ), black;                 /* mantém seu gradient existente */
 }
+
+/* ===== Linha animada ===== */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;                   /* topo do footer */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(212, 175, 55, 0.2) 0%,
+        rgba(212, 175, 55, 0.8) 50%,
+        rgba(212, 175, 55, 0.2) 100%
+    );
+    background-size: 200% 100%; /* importante para animação funcionar */
+    z-index: 10;
+    animation: shine 3s linear infinite;
+}
+
+/* ===== Animação da linha ===== */
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ===== Título do footer ===== */
 footer h5 {
     text-align: center;
     margin-top: 0px;
     padding-top: 20px;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-shadow: 
+        0 0 4px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+/* ===== Copyright ===== */
+footer p.copyright {
+    text-align: center;
+    color: #d4af37;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+    margin-top: 20px;
+}
+
+footer h5 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 20px;
+    font-size: 30px;
+    font-family: 'Parisienne', cursive;
 }
 footer h5 {
-    color: white;
+    color: #d4af37;
     text-shadow: 
         0 0 4px rgba(255, 255, 255, 0.4),
         0 0 8px rgba(255, 215, 0, 0.3);
@@ -205,11 +255,6 @@ footer h5 {
     color: white;
 }
 
-.card-content img {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 12px;
-}
 .cards-servicos {
     max-width: 700px;
     margin: 40px auto; /* isso centraliza */
@@ -801,6 +846,51 @@ body { overflow-x: hidden; }
    H1 DO HEADER - REFLEXO DOURADO
    =============================== */
 header h1 {
+    color: #d4af37; /* Cor dourada base */
+    position: relative;
+    font-weight: bold;
+
+    /* Gradiente para o reflexo */
+    background: linear-gradient(
+        90deg,
+        #d4af37 0%,        /* dourado base */
+        #ffffff 40%,       /* reflexo branco */
+        #d4af37 60%,       /* dourado volta */
+        #d4af37 100%
+    );
+    background-size: 200% 100%; /* tamanho maior para animação suave */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Glow sutil */
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7), 
+                 0 0 12px rgba(212, 175, 55, 0.4);
+
+    /* Animação do reflexo - invertido (direita para esquerda) */
+    animation: shine-text 3.5s linear infinite;
+}
+
+/* Keyframes da animação do reflexo (invertido) */
+@keyframes shine-text {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+/* ===== Copyright elegante ===== */
+.footer-copy {
+    text-align: center;
+    color: #d4af37;           /* dourado */
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+main h3 {
     color: #d4af37; /* Cor dourada base */
     position: relative;
     font-weight: bold;
