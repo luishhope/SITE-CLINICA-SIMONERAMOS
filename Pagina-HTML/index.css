@@ -261,7 +261,7 @@ footer h5 {
 }
 .card {
     background-color: #111;
-    border: 1px solid #555;
+    border: 1px solid #d4af37;
     border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -924,3 +924,129 @@ main h3 {
         background-position: -200% 0;
     }
 }
+/* ===== Developer Badge Texto Minimalista ===== */
+.developer-badge {
+    position: absolute;       
+    bottom: 20px;             
+    left: 20px;               
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-start;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.dev-text {
+    font-family: 'Arial', sans-serif;  
+    color: #d4af37;                     
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* container dos cardzinhos */
+.dev-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.developer-badge:hover .dev-cards {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* estilo do card */
+.dev-card {
+    background: #000;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== Reflexo perfeita diagonal sem mostrar bordas ===== */
+.dev-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;            /* começa totalmente fora */
+    width: 150%;            /* garante cobertura total */
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(20deg); /* diagonal perfeita */
+    animation: shineCard 1.8s linear infinite;
+    pointer-events: none;
+}
+
+/* animação suave atravessando tudo */
+@keyframes shineCard {
+    0% { left: -120%; }
+    100% { left: 120%; }
+}
+
+/* hover no card com leve bounce */
+.dev-card:hover {
+    background: #111;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+    transform: translateY(-5px) scale(1.03);
+}
+/* Partículas douradas no main */
+#particle-container {
+    position: absolute;
+    top: 0;                 /* começa exatamente no topo do main */
+    left: 0;
+    width: 100%;
+    height: 50vh;          /* partículas só até metade do main */
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* estilo das partículas */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffe08a, #d4af37);
+    border-radius: 50%;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px #d4af37);
+    animation: particleFall 3s linear forwards;
+}
+
+/* animação nova (de cima → meio do main) */
+@keyframes particleFall {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(25vh); /* até a metade do main */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30vh); /* desaparece logo abaixo */
+    }
+}
+
