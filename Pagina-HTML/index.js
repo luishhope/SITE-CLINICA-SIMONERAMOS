@@ -373,3 +373,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInterval(createParticle, 150);
 });
+
+const abrir = document.getElementById("abrirResultados");
+const modal = document.getElementById("modalResultados");
+const fechar = document.getElementById("fecharResultados");
+
+const resultados = document.querySelectorAll(".resultado");
+const next = document.getElementById("next");
+const prev = document.getElementById("prev");
+
+let indexAtual = 0;
+
+function mostrarResultado(index) {
+    resultados.forEach((res, i) => {
+        res.classList.toggle("ativo", i === index);
+    });
+}
+
+abrir.addEventListener("click", () => {
+    modal.classList.add("ativo");
+    mostrarResultado(indexAtual);
+});
+
+fechar.addEventListener("click", () => {
+    modal.classList.remove("ativo");
+});
+
+next.addEventListener("click", () => {
+    indexAtual = (indexAtual + 1) % resultados.length;
+    mostrarResultado(indexAtual);
+});
+
+prev.addEventListener("click", () => {
+    indexAtual = (indexAtual - 1 + resultados.length) % resultados.length;
+    mostrarResultado(indexAtual);
+});
