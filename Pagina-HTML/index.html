@@ -297,22 +297,32 @@ Indicado para queda por estresse, disfunções do couro cabeludo, alterações h
 
 <!-- POP-UP DE FORMULÁRIO -->
 <div id="form-overlay">
-  <div id="form-popup">
+  <form 
+    id="form-popup"
+    action="https://formsubmit.co/simoneramoscabelo@gmail.com"
+    method="POST"
+  >
     <h2>Agendar Consulta</h2>
 
     <label>Nome</label>
-    <input type="text" placeholder="Seu nome">
+    <input type="text" name="nome" placeholder="Seu nome" required>
 
     <label>Telefone</label>
-    <input type="text" placeholder="(XX) XXXXX-XXXX">
+    <input type="text" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
 
     <label>Mensagem</label>
-    <textarea placeholder="Descreva seu caso..."></textarea>
+    <textarea name="mensagem" placeholder="Descreva seu caso..." required></textarea>
 
-    <button id="enviar-form">Enviar</button>
-    <button id="fechar-form">Fechar</button>
-  </div>
+    <!-- Configurações do FormSubmit -->
+    <input type="hidden" name="_subject" value="Novo agendamento - Site">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit" id="enviar-form">Enviar</button>
+    <button type="button" id="fechar-form">Fechar</button>
+  </form>
 </div>
+
 
 <!-- POPUP DIAGNÓSTICO -->
 <div id="popupDiagnostico" class="popup-diag">

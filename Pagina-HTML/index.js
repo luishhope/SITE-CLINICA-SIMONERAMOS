@@ -65,12 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("form-overlay");
     const fecharForm = document.getElementById("fechar-form");
     const agendamentoBalao = document.getElementById("agendamento-balao");
+    const form = document.getElementById("form-popup");
 
-    // Clicar no balão abre o formulário
+    // Abrir formulário
     if (agendamentoBalao && overlay) {
         agendamentoBalao.addEventListener("click", () => {
             overlay.classList.add("show");
-            overlay.style.display = "flex"; // garante visibilidade
+            overlay.style.display = "flex";
         });
     }
 
@@ -78,18 +79,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fecharForm && overlay) {
         fecharForm.addEventListener("click", () => {
             overlay.classList.remove("show");
-            overlay.style.display = "none"; // esconde
+            overlay.style.display = "none";
         });
+    }
 
-        // Fechar clicando fora do conteúdo
-        overlay.addEventListener("click", (e) => {
-            if (e.target === overlay) {
+    // Fechar clicando fora
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove("show");
+            overlay.style.display = "none";
+        }
+    });
+
+    // Após enviar, fecha o popup (experiência profissional)
+    if (form) {
+        form.addEventListener("submit", () => {
+            setTimeout(() => {
                 overlay.classList.remove("show");
                 overlay.style.display = "none";
-            }
+                form.reset();
+            }, 500);
         });
     }
 });
+
 
 
 
