@@ -1604,3 +1604,78 @@ html, body {
         word-break: break-word;
     }
 }
+/* =========================================
+   FIX POPUP RESULTADOS REAIS — MOBILE
+   NÃO AFETA DESKTOP
+========================================= */
+@media (max-width: 768px) {
+
+    /* Modal ocupa melhor a tela */
+    .modal-content {
+        padding: 25px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* Container do slider */
+    .slider-resultados {
+        min-height: auto;
+    }
+
+    /* Resultado deixa de ser absolute no mobile */
+    .resultado {
+        position: relative;          /* <-- CHAVE DO BUG */
+        left: auto;
+        top: auto;
+        transform: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* Garante que as fotos empilhem corretamente */
+    .foto {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .foto img {
+        width: 85%;
+        max-width: 260px;
+        height: auto;
+    }
+
+    /* CONTROLES — ficam FORA do quadrado */
+    .controles {
+        position: relative;
+        margin-top: 20px;
+        pointer-events: auto;
+    }
+
+    .controles button {
+        top: auto;
+        transform: none;
+    }
+
+    #prev {
+        left: 10px;
+    }
+
+    #next {
+        right: 10px;
+    }
+}
+
+/* -------- celulares pequenos -------- */
+@media (max-width: 480px) {
+
+    .foto img {
+        max-width: 220px;
+    }
+
+    .modal-content h3 {
+        font-size: 22px;
+    }
+}
