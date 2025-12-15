@@ -1260,3 +1260,178 @@ main {
     }
 }
 
+/* =================================================
+   MOBILE FIRST — AJUSTES RESPONSIVOS
+   (não altera desktop)
+================================================= */
+
+/* -------- Tablets e celulares -------- */
+@media (max-width: 768px) {
+
+    /* HEADER */
+    header {
+        padding: 50px 20px;
+    }
+
+    header h1 {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .header-buttons a {
+        font-size: 18px;
+    }
+
+    /* MAIN */
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 60px;
+    }
+
+    main h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    main h3,
+    main h5 {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    /* CARDS SERVIÇOS */
+    .cards-servicos {
+        max-width: 100%;
+    }
+
+    .card-header {
+        font-size: 20px;
+    }
+
+    /* BOTÕES SOCIAIS */
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-btn {
+        width: 90%;
+        justify-content: center;
+    }
+
+    /* BOTÃO AGENDAMENTO */
+    #agendamento-balao {
+        right: 15px;
+        bottom: 90px;
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+
+    /* BOTÃO TOPO */
+    #btnTopo {
+        right: 15px;
+        bottom: 30px;
+    }
+
+    /* DIAGNÓSTICO */
+    .diagnostico-section {
+        padding: 70px 15px;
+    }
+
+    .diag-container h2 {
+        font-size: 1.9rem;
+    }
+
+    .diag-container p {
+        font-size: 1rem;
+    }
+
+    /* POPUP DIAGNÓSTICO */
+    .popup-content-diag {
+        padding: 22px;
+    }
+
+    /* MAPA HEADER */
+    #header-localizacao {
+        top: 15px;
+        right: 10px;
+    }
+
+    #pin-localizacao {
+        width: 48px;
+    }
+
+    #mapa-popup {
+        width: 260px;
+    }
+
+    /* RESULTADOS */
+    .resultado {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .foto img {
+        width: 200px;
+        height: 240px;
+    }
+
+    /* CONTROLES RESULTADOS */
+    #prev {
+        left: -15px;
+    }
+
+    #next {
+        right: -15px;
+    }
+}
+
+/* -------- Celulares pequenos -------- */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .header-buttons a {
+        font-size: 16px;
+        margin: 0 6px;
+    }
+
+    main h2 {
+        font-size: 24px;
+    }
+
+    main h3 {
+        font-size: 24px;
+    }
+
+    .slide img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .slide p {
+        font-size: 15px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .foto img {
+        width: 180px;
+        height: 220px;
+    }
+
+    .dev-text {
+        font-size: 12px;
+    }
+}
