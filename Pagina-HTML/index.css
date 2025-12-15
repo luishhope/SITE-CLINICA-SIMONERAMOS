@@ -1435,3 +1435,172 @@ main {
         font-size: 12px;
     }
 }
+/* =========================================
+   MOBILE FIX DEFINITIVO — SEM ALTERAR DESKTOP
+========================================= */
+
+/* Garante que NADA ultrapasse a viewport */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Evita scroll lateral por transform/scale */
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+   AJUSTES MOBILE GERAIS
+========================= */
+@media (max-width: 768px) {
+
+    /* Evita espaços brancos por elementos absolutos */
+    section, header, main, footer {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+        padding: 45px 16px;
+    }
+
+    /* PARTICLES */
+    #particle-container {
+        height: 600px;
+    }
+
+    /* CAROUSEL — impede vazamento lateral */
+    .carousel-container {
+        width: 100%;
+        padding: 20px 0;
+        overflow: hidden;
+    }
+
+    .carousel-viewport {
+        overflow: hidden;
+    }
+
+    /* BOTÕES DO CAROUSEL SEM SAIR DA TELA */
+    .carousel-btn.prev {
+        left: 8px;
+    }
+
+    .carousel-btn.next {
+        right: 8px;
+    }
+
+    /* ======================
+       MODAIS / POPUPS
+    ====================== */
+
+    /* Centralização perfeita */
+    .modal-resultados,
+    #form-overlay,
+    .popup-diag {
+        padding: 15px;
+    }
+
+    /* Modal nunca ultrapassa tela */
+    .modal-content,
+    #form-popup,
+    .popup-content-diag {
+        max-width: 100%;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* RESULTADOS */
+    .resultado {
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* CONTROLES DOS RESULTADOS */
+    #prev {
+        left: 5px;
+    }
+
+    #next {
+        right: 5px;
+    }
+
+    /* ======================
+       BOTÕES FIXOS
+    ====================== */
+
+    #btnTopo {
+        right: 14px;
+        bottom: 20px;
+    }
+
+    #agendamento-balao {
+        right: 14px;
+        bottom: 80px;
+        max-width: calc(100% - 28px);
+        white-space: nowrap;
+    }
+
+    #agendamento-balao.move-up {
+        bottom: 135px;
+    }
+
+    /* ======================
+       MAPA HEADER
+    ====================== */
+    #mapa-popup {
+        right: 0;
+        left: auto;
+        max-width: 92vw;
+    }
+
+    /* ======================
+       DEVELOPER BADGE
+    ====================== */
+    .developer-badge {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 40px;
+        align-items: center;
+    }
+}
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .slide img {
+        width: 180px;
+        height: 140px;
+    }
+
+    .slide p {
+        font-size: 14px;
+    }
+
+    /* Fotos resultados */
+    .foto img {
+        width: 170px;
+        height: 210px;
+    }
+
+    /* Texto não estoura */
+    h1, h2, h3, h4, h5, p {
+        word-break: break-word;
+    }
+}
