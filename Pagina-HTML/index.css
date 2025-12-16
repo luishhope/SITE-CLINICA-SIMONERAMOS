@@ -1605,36 +1605,37 @@ html, body {
     }
 }
 /* =========================================
-   FIX POPUP RESULTADOS REAIS — MOBILE
-   NÃO AFETA DESKTOP
+   FIX DEFINITIVO — RESULTADOS REAIS MOBILE
 ========================================= */
 @media (max-width: 768px) {
 
-    /* Modal ocupa melhor a tela */
-    .modal-content {
-        padding: 25px 20px;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    /* Container do slider */
+    /* Slider vira fluxo normal */
     .slider-resultados {
+        position: relative;
         min-height: auto;
     }
 
-    /* Resultado deixa de ser absolute no mobile */
+    /* TODOS os resultados somem */
     .resultado {
-        position: relative;          /* <-- CHAVE DO BUG */
+        display: none;              /* <-- CHAVE DA SOLUÇÃO */
+        position: relative;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        width: 100%;
         left: auto;
         top: auto;
-        transform: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
     }
 
-    /* Garante que as fotos empilhem corretamente */
+    /* SOMENTE o ativo aparece */
+    .resultado.ativo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    /* Fotos sempre em coluna */
     .foto {
         width: 100%;
         display: flex;
@@ -1642,40 +1643,32 @@ html, body {
     }
 
     .foto img {
-        width: 85%;
+        width: 90%;
         max-width: 260px;
         height: auto;
     }
 
-    /* CONTROLES — ficam FORA do quadrado */
+    /* Setas ficam ABAIXO do conteúdo */
     .controles {
         position: relative;
         margin-top: 20px;
-        pointer-events: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
     }
 
     .controles button {
+        position: relative;
         top: auto;
+        left: auto;
+        right: auto;
         transform: none;
-    }
-
-    #prev {
-        left: 10px;
-    }
-
-    #next {
-        right: 10px;
     }
 }
 
 /* -------- celulares pequenos -------- */
 @media (max-width: 480px) {
-
     .foto img {
         max-width: 220px;
-    }
-
-    .modal-content h3 {
-        font-size: 22px;
     }
 }
