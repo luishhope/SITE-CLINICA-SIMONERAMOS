@@ -398,8 +398,27 @@ const prev = document.getElementById("prev");
 let indexAtual = 0;
 
 function mostrarResultado(index) {
+    const isMobile = window.innerWidth <= 768;
+
     resultados.forEach((res, i) => {
-        res.classList.toggle("ativo", i === index);
+        if (i === index) {
+            res.classList.add("ativo");
+
+            if (isMobile) {
+                res.style.display = "flex";
+                res.style.flexDirection = "column";
+            } else {
+                res.style.display = "";
+            }
+        } else {
+            res.classList.remove("ativo");
+
+            if (isMobile) {
+                res.style.display = "none";
+            } else {
+                res.style.display = "";
+            }
+        }
     });
 }
 
